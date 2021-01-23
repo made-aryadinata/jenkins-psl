@@ -32,10 +32,8 @@ def main(script) {
        docker_user,
        app_port,
        pr_num,
-       dockerTool
-
-
-
+       dockerTool,
+       docker_registry
    )
 
    ansiColor('xterm') {
@@ -48,10 +46,9 @@ def main(script) {
            sprebuild.checkoutBuildTest(p)
        }
 
-
-       //stage('Build & Push Image') {
-           // TODO: Call build & push image function
-       //}
+       stage('Build & Push Image') {
+           sbuild.build(p)
+       }
 
        //stage('Merge') {
            // TODO: Call merge function
